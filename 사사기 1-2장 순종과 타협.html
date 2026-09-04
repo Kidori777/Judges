@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사사기 1장 · 순종과 타협 사이 — 사사기 시리즈</title>
+<meta name="description" content="여호수아 이후, 이스라엘이 다시 하나님께 묻는 자리에서 시작된 사사기. 철 병거 앞에서 멈춘 순종과 점진적 타협의 역사를 따라가는 사사기 시리즈 1장 묵상.">
+<meta property="og:title" content="사사기 1장 · 순종과 타협 사이">
+<meta property="og:description" content="이미 주어진 승리, 그러나 여전히 걸어 들어가야 하는 싸움. 철 병거 앞에서 멈춘 이스라엘의 반쪽 순종을 따라가는 사사기 시리즈 첫 번째 이야기.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #1a140f;
+    --bg-raised: #241a12;
+    --bg-accent: #2c1c14;
+    --rust: #b1512e;
+    --rust-bright: #cc6640;
+    --rust-dim: #7a3a22;
+    --gold: #c99a44;
+    --gold-dim: #8f6f37;
+    --patina: #74907b;
+    --patina-dim: #4d6154;
+    --ink: #ece3d6;
+    --ink-soft: #b3a48f;
+    --ink-faint: #7d7061;
+    --line: #3a2c20;
+    --line-soft: #2a2018;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans KR', sans-serif;
+    line-height:1.9;
+    font-weight:400;
+    overflow-x:hidden;
+  }
+
+  ::selection{background:var(--rust-dim);color:var(--ink);}
+
+  /* progress bar */
+  .progress{
+    position:fixed;top:0;left:0;height:3px;
+    background:linear-gradient(90deg,var(--rust),var(--gold));
+    width:0%;
+    z-index:200;
+    transition:width .1s linear;
+  }
+
+  a{color:var(--gold);}
+
+  .verse{
+    color:var(--gold);
+    font-family:'Noto Serif KR', serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+
+  .section-label{
+    display:block;
+    font-family:'Noto Serif KR', serif;
+    font-weight:700;
+    font-size:1.5rem;
+    color:var(--rust-bright);
+    margin-bottom:1.4rem;
+    letter-spacing:0.02em;
+  }
+
+  .cite{
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:0.8rem;
+    color:var(--ink-faint);
+    letter-spacing:0.03em;
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:6rem 1.5rem 4rem;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse at 50% 20%, rgba(177,81,46,0.14), transparent 60%),
+      var(--bg);
+  }
+
+  .hero-wheel{
+    position:absolute;
+    top:50%;left:50%;
+    width:min(120vw, 900px);
+    height:min(120vw, 900px);
+    transform:translate(-50%,-50%);
+    opacity:0.16;
+    z-index:0;
+    pointer-events:none;
+  }
+  .hero-wheel svg{width:100%;height:100%;}
+
+  .hero-inner{position:relative;z-index:1;max-width:760px;}
+
+  .hero-eyebrow{
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    letter-spacing:0.08em;
+    margin-bottom:1.6rem;
+  }
+  .hero-eyebrow .dot{color:var(--rust-bright);margin:0 0.5em;}
+
+  .hero-title{
+    font-family:'Noto Serif KR', serif;
+    font-weight:900;
+    font-size:clamp(2.4rem, 6vw, 4rem);
+    line-height:1.3;
+    color:var(--ink);
+    margin-bottom:1.2rem;
+  }
+  .hero-title .accent{color:var(--rust-bright);}
+
+  .hero-sub{
+    font-family:'Noto Sans KR', sans-serif;
+    font-weight:300;
+    font-size:1.05rem;
+    color:var(--ink-soft);
+    margin-bottom:3rem;
+    line-height:1.8;
+  }
+
+  .hero-epigraph{
+    border-top:1px solid var(--line);
+    padding-top:2.2rem;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .hero-epigraph p{
+    font-family:'Noto Serif KR', serif;
+    font-weight:500;
+    font-size:1.15rem;
+    color:var(--gold);
+    line-height:1.85;
+    margin-bottom:0.9rem;
+  }
+
+  .scroll-cue{
+    position:absolute;
+    bottom:2.4rem;left:50%;
+    transform:translateX(-50%);
+    width:1px;height:44px;
+    background:linear-gradient(var(--rust-dim), transparent);
+    z-index:1;
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  main{
+    max-width:660px;
+    margin:0 auto;
+    padding:5rem 1.5rem 3rem;
+  }
+
+  section.block{
+    padding:3.2rem 0;
+    border-bottom:1px solid var(--line-soft);
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  section.block.visible{opacity:1;transform:translateY(0);}
+  section.block:last-of-type{border-bottom:none;}
+
+  section.block p{
+    font-size:1.05rem;
+    color:var(--ink);
+    margin-bottom:1.1rem;
+  }
+  section.block p:last-child{margin-bottom:0;}
+
+  /* turning point section - iron chariot */
+  .turning-point{
+    background:var(--bg-accent);
+    margin:1rem -1.6rem;
+    padding:3rem 1.6rem;
+    border-left:3px solid var(--rust);
+    position:relative;
+  }
+  .turning-point .section-label{color:var(--rust-bright);}
+
+  /* covenant warning block */
+  .warning-block{
+    background:var(--bg-raised);
+    margin:1rem -1.2rem;
+    padding:2.6rem 1.6rem;
+    border-left:3px solid var(--gold-dim);
+  }
+
+  /* closing section */
+  .closing{
+    padding-top:3.5rem;
+  }
+  .closing .section-label{color:var(--gold);}
+  .closing p{font-size:1.05rem;}
+  .closing-mark{
+    margin-top:2.6rem;
+    font-family:'Noto Serif KR', serif;
+    font-weight:600;
+    font-size:1.2rem;
+    color:var(--ink-soft);
+    line-height:1.9;
+  }
+
+  /* ===== CYCLE DIAGRAM ===== */
+  .cycle-wrap{
+    margin:2.6rem 0 1rem;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1.4rem;
+  }
+  .cycle-wrap svg{width:100%;max-width:420px;height:auto;}
+  .cycle-caption{
+    font-size:0.85rem;
+    color:var(--ink-faint);
+    text-align:center;
+    max-width:340px;
+    line-height:1.7;
+  }
+
+  footer{
+    max-width:660px;
+    margin:0 auto;
+    padding:3rem 1.5rem 5rem;
+    border-top:1px solid var(--line);
+    text-align:center;
+  }
+  footer p{
+    font-family:'Noto Serif KR', serif;
+    font-size:0.95rem;
+    color:var(--ink-faint);
+  }
+
+  @media (max-width:640px){
+    main{padding:3.5rem 1.3rem 2.5rem;}
+    .turning-point, .warning-block{margin-left:-1.3rem;margin-right:-1.3rem;padding-left:1.3rem;padding-right:1.3rem;}
+    .hero{padding:5rem 1.2rem 3rem;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    section.block{transition:none;opacity:1;transform:none;}
+    .hero-wheel svg .spin{animation:none !important;}
+  }
+
+  :focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<section class="hero">
+  <div class="hero-wheel">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="wheelGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#cc6640"/>
+          <stop offset="70%" stop-color="#7a3a22"/>
+          <stop offset="100%" stop-color="#1a140f"/>
+        </radialGradient>
+      </defs>
+      <g class="spin" style="transform-origin:200px 200px;animation:slowspin 240s linear infinite;">
+        <circle cx="200" cy="200" r="150" fill="none" stroke="url(#wheelGrad)" stroke-width="14"/>
+        <circle cx="200" cy="200" r="100" fill="none" stroke="#b1512e" stroke-width="2" stroke-dasharray="4 10"/>
+        <circle cx="200" cy="200" r="14" fill="#b1512e"/>
+        <g stroke="#b1512e" stroke-width="6" stroke-linecap="round">
+          <line x1="200" y1="60" x2="200" y2="130"/>
+          <line x1="200" y1="270" x2="200" y2="340"/>
+          <line x1="60" y1="200" x2="130" y2="200"/>
+          <line x1="270" y1="200" x2="340" y2="200"/>
+          <line x1="99" y1="99" x2="147" y2="147"/>
+          <line x1="301" y1="99" x2="253" y2="147"/>
+          <line x1="99" y1="301" x2="147" y2="253"/>
+          <line x1="301" y1="301" x2="253" y2="253"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <style>@keyframes slowspin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}</style>
+
+  <div class="hero-inner">
+    <span class="hero-eyebrow">사사기 시리즈<span class="dot">·</span>1장</span>
+    <h1 class="hero-title">순종과 타협<br><span class="accent">사이</span>에서</h1>
+    <p class="hero-sub">여호수아가 사라진 자리, 이스라엘은 다시 하나님께 묻습니다.<br>이미 주어진 승리와, 여전히 걸어 들어가야 할 싸움에 대한 이야기.</p>
+    <div class="hero-epigraph">
+      <p>"여호수아가 죽은 후에 이스라엘 자손이 여호와께 여쭈었다. '저희를 위하여 누가 먼저 가나안 족속과 맞서 싸우러 올라가야 합니까?'"</p>
+      <span class="cite">삿 1:1</span>
+    </div>
+  </div>
+  <div class="scroll-cue"></div>
+</section>
+
+<main>
+
+  <section class="block">
+    <span class="section-label">다시 묻는 자리</span>
+    <p>이 한 구절은 새로운 시대의 문을 여는 질문입니다. 지도자가 사라진 자리에서, 백성은 다시 하나님께 묻습니다. 이 질문 속에는 단순한 전쟁의 순서가 아니라, "누가 하나님과 함께 시작할 것인가"라는 더 깊은 의미가 담겨 있습니다. 하나님은 즉시 응답하십니다. <span class="verse">"유다가 올라가야 한다. 내가 이미 그 땅을 그의 손에 넘겨주었다."</span> <span class="cite">(삿 1:2)</span> 이미 주어졌다고 선언된 승리, 그러나 여전히 걸어 들어가야 하는 싸움. 이것이 하나님 나라의 방식입니다. 약속은 먼저 주어지지만, 그것은 순종을 통해 현실이 됩니다.</p>
+  </section>
+
+  <section class="block">
+    <span class="section-label">함께 싸우는 백성</span>
+    <p>유다는 혼자가 아니라 시므온과 함께 올라갑니다. 이 협력은 하나님의 백성이 개인이 아니라 공동체로 부름받았음을 보여 줍니다. 그리고 <span class="verse">"여호와께서 가나안 족속과 브리스 족속을 그들의 손에 넘겨주셨으므로"</span> <span class="cite">(삿 1:4)</span> 그들은 승리합니다. 여기서 중요한 것은 전쟁의 기술이 아니라, 하나님이 넘겨주셨다는 사실입니다. 하나님은 자신의 백성이 그분을 신뢰할 때 역사 속에 개입하십니다.</p>
+  </section>
+
+  <section class="block">
+    <span class="section-label">온 땅의 공의</span>
+    <p>그러나 이 승리의 흐름 속에서도 또 다른 장면이 등장합니다. 아도니베섹이 말합니다. <span class="verse">"내가 한 그대로 하나님께서 나에게 갚으시는구나."</span> <span class="cite">(삿 1:7)</span> 이 고백은 하나님께서 단지 이스라엘의 하나님만이 아니라, 온 땅의 공의의 하나님이심을 드러냅니다. 인간의 행위는 결국 하나님의 공의 안에서 되돌아옵니다. 역사는 우연히 흘러가는 것이 아니라, 하나님의 성품을 반영하며 진행됩니다.</p>
+  </section>
+
+  <section class="block">
+    <span class="section-label">생명을 지속하게 하는 샘</span>
+    <p>유다는 계속하여 땅을 차지합니다. 예루살렘을 치고, 산지와 네게브와 평지를 점령합니다. 갈렙과 옷니엘, 악사의 이야기가 그 가운데 흐릅니다. <span class="verse">"저에게 복을 주십시오… 샘물도 저에게 주십시오."</span> <span class="cite">(삿 1:15)</span> 이 요청은 단순한 생활의 필요를 넘어서, 생명을 지속하게 하는 근원을 구하는 신앙의 모습입니다. 하나님께서 주신 땅에는 반드시 그 땅을 살리는 샘이 필요합니다. 약속의 성취는 외적인 정복으로 끝나지 않고, 생명의 공급으로 완성됩니다.</p>
+  </section>
+
+  <section class="block turning-point">
+    <span class="section-label">철 병거 앞에서</span>
+    <p>그러나 이 흐름은 어느 순간 미묘하게 흔들리기 시작합니다. <span class="verse">"여호와께서 유다와 함께하셨다… 그러나 골짜기에 거주하는 주민들을 쫓아내지는 못하였는데, 그곳 주민들에게 쇠로 만든 병거가 있었기 때문이다."</span> <span class="cite">(삿 1:19)</span> 이 구절은 매우 중요합니다. 하나님이 함께하셨는데도 불구하고, 인간의 눈에는 여전히 두려움이 남아 있습니다. 철 병거는 현실적인 장벽이지만, 동시에 믿음의 한계를 드러내는 상징입니다. 하나님이 이미 주셨다고 하셨음에도, 사람은 여전히 보이는 힘 앞에서 멈춰섭니다.</p>
+  </section>
+
+  <section class="block">
+    <span class="section-label">점진적 타협</span>
+    <p>이 멈춤은 점점 더 확장됩니다. <span class="verse">"베냐민 자손은… 쫓아내지 않았으므로"</span> <span class="cite">(삿 1:21)</span>, <span class="verse">"므낫세는… 쫓아내지 않아"</span> <span class="cite">(삿 1:27)</span>, <span class="verse">"에브라임도… 쫓아내지 않아"</span> <span class="cite">(삿 1:29)</span>. 반복되는 이 표현은 단순한 실패의 기록이 아니라, 점진적인 타협의 역사입니다. 처음에는 일부를 남겨두고, 나중에는 함께 거주하고, 결국에는 그들에게 영향을 받게 됩니다. 하나님이 명하신 것은 완전한 분리였지만, 사람은 현실과 타협하며 절반의 순종을 선택합니다.</p>
+  </section>
+
+  <section class="block warning-block">
+    <span class="section-label">옆구리의 가시</span>
+    <p>이때 하나님께서 직접 말씀하십니다. <span class="verse">"너희는 이 땅의 주민들과 언약을 맺지 말고 그들의 제단을 헐어야 한다… 그런데 너희는 나의 말을 듣지 않았다."</span> <span class="cite">(삿 2:2)</span> 그리고 이어지는 선언은 무겁습니다. <span class="verse">"그들이 너희 옆구리의 가시처럼 되고, 그들의 신들이 너희에게 올무가 될 것이다."</span> <span class="cite">(삿 2:3)</span> 하나님은 단순히 벌을 내리시는 것이 아니라, 그들이 선택한 길의 결과를 그대로 허용하십니다. 순종하지 않은 자리에 남겨진 것들이 결국 그들을 묶는 도구가 됩니다.</p>
+  </section>
+
+  <section class="block">
+    <span class="section-label">관계의 단절</span>
+    <p>백성은 울며 제사를 드립니다. 그러나 이 눈물은 아직 근본적인 변화로 이어지지 않습니다. 왜냐하면 더 깊은 문제가 드러나기 때문입니다. <span class="verse">"또 다른 세대가… 여호와를 알지 못하였고 그분께서… 하신 일도 알지 못하였다."</span> <span class="cite">(삿 2:10)</span> 이것은 단순한 지식의 부재가 아니라, 관계의 단절입니다. 하나님을 경험하지 못한 세대는 자연스럽게 다른 신을 향하게 됩니다.</p>
+  </section>
+
+  <section class="block">
+    <span class="section-label">중립은 없다</span>
+    <p>그 결과는 명확합니다. <span class="verse">"이스라엘 자손은 여호와께서 보시기에 악한 짓을 하며 바알들을 섬겼다."</span> <span class="cite">(삿 2:11)</span> 하나님을 떠난 마음은 반드시 다른 것을 붙잡게 됩니다. 중립은 존재하지 않습니다. 하나님을 저버린 자리는 우상으로 채워집니다. 그리고 하나님은 그들을 원수의 손에 넘기십니다. 그러나 이것은 단순한 심판이 아니라, 돌이키게 하려는 하나님의 깊은 의도입니다.</p>
+  </section>
+
+  <section class="block">
+    <span class="section-label">반복되는 구원</span>
+    <p><span class="verse">"여호와는 사사들을 일으키시어… 구원하게 하셨다."</span> <span class="cite">(삿 2:16)</span> 여기서 하나님의 또 다른 면이 드러납니다. 인간은 반복해서 실패하지만, 하나님은 반복해서 구원하십니다. 그러나 이 구원조차도 완전한 해결이 되지 못합니다. <span class="verse">"사사가 죽으면 그들이 돌아서서… 더욱 부패해져"</span> <span class="cite">(삿 2:19)</span> 다시 타락합니다. 이것은 인간 안에 있는 근본적인 문제, 즉 외부의 도움으로는 완전히 해결되지 않는 내적인 타락을 드러냅니다.</p>
+
+    <div class="cycle-wrap">
+      <svg viewBox="0 0 420 400" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L6,3 L0,6 Z" fill="#8f6f37"/>
+          </marker>
+        </defs>
+        <circle cx="210" cy="200" r="105" fill="none" stroke="#3a2c20" stroke-width="1.5"/>
+        <path d="M 210 95 A 105 105 0 0 1 300.9 147.5" fill="none" stroke="#b1512e" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 300.9 147.5 A 105 105 0 0 1 300.9 252.5" fill="none" stroke="#7a3a22" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 300.9 252.5 A 105 105 0 0 1 210 305" fill="none" stroke="#c99a44" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 210 305 A 105 105 0 0 1 119.1 252.5" fill="none" stroke="#8f6f37" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 119.1 252.5 A 105 105 0 0 1 119.1 147.5" fill="none" stroke="#74907b" stroke-width="2.5" marker-end="url(#arrow)"/>
+        <path d="M 119.1 147.5 A 105 105 0 0 1 210 95" fill="none" stroke="#4d6154" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+        <circle cx="210" cy="95" r="4" fill="#b1512e"/>
+        <circle cx="300.9" cy="147.5" r="4" fill="#7a3a22"/>
+        <circle cx="300.9" cy="252.5" r="4" fill="#c99a44"/>
+        <circle cx="210" cy="305" r="4" fill="#8f6f37"/>
+        <circle cx="119.1" cy="252.5" r="4" fill="#74907b"/>
+        <circle cx="119.1" cy="147.5" r="4" fill="#4d6154"/>
+
+        <text x="210" y="66" text-anchor="middle" fill="#cc6640" font-family="Noto Sans KR, sans-serif" font-size="14">타락</text>
+        <text x="322.6" y="131" text-anchor="middle" fill="#b3a48f" font-family="Noto Sans KR, sans-serif" font-size="14">압제</text>
+        <text x="322.6" y="269" text-anchor="middle" fill="#b3a48f" font-family="Noto Sans KR, sans-serif" font-size="14">부르짖음</text>
+        <text x="210" y="336" text-anchor="middle" fill="#c99a44" font-family="Noto Sans KR, sans-serif" font-size="14">구원</text>
+        <text x="97.4" y="269" text-anchor="middle" fill="#b3a48f" font-family="Noto Sans KR, sans-serif" font-size="14">평온</text>
+        <text x="97.4" y="131" text-anchor="middle" fill="#b3a48f" font-family="Noto Sans KR, sans-serif" font-size="14">다시 타락</text>
+      </svg>
+      <p class="cycle-caption">사사기 전체를 관통하는 순환 구조 — 인간은 반복해서 실패하지만, 하나님은 반복해서 구원하십니다. 그러나 사사가 죽으면 백성은 다시 이 원 안으로 되돌아갑니다.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <span class="section-label">드러내시는 시험</span>
+    <p>그래서 하나님은 한 걸음 더 나아가십니다. <span class="verse">"그것은 이스라엘이… 여호와의 길을 지켜… 걷는지… 시험해 보기 위한 것이다."</span> <span class="cite">(삿 2:22)</span> 하나님은 그들을 즉시 완전하게 만들지 않으시고, 남겨진 민족들을 통해 그들의 마음을 드러내십니다. 이것은 단순한 시험이 아니라, 하나님이 인간을 다루시는 방식입니다. 외적인 환경을 통해 내적인 상태를 드러내고, 그 드러남 속에서 참된 회복의 필요를 깨닫게 하시는 것입니다.</p>
+  </section>
+
+  <section class="block closing">
+    <span class="section-label">더 깊은 이야기를 향하여</span>
+    <p>이 모든 흐름을 따라가다 보면, 하나의 사실이 점점 선명해집니다. 이스라엘의 문제는 전쟁의 실패가 아니라, 하나님과의 관계의 실패입니다. 그리고 사사들의 반복적인 구원조차도 근본적인 해결이 되지 못합니다. 이는 결국 더 깊은 구원이 필요함을 암시합니다.</p>
+    <p>하나님께서 이 긴 역사를 통해 이루고자 하시는 것은 단순히 한 민족을 땅에 정착시키는 것이 아닙니다. 그분의 목적은 사람 안에 하나님을 향한 참된 순종과 사랑을 회복하는 것입니다. 외적인 율법이 아니라, 내적인 생명으로 하나님을 따르는 백성을 얻으시는 것입니다. 사사기의 반복되는 실패와 구원의 순환은, 인간 스스로는 결코 하나님께 온전히 이를 수 없음을 드러내며, 결국 하나님 자신이 직접 길이 되셔야 함을 예비합니다.</p>
+    <p>그래서 이 이야기는 단순한 과거의 기록이 아니라, 더 큰 이야기의 일부입니다. 하나님은 실패하는 인간을 통해 포기하지 않으시고, 오히려 그 실패를 통해 자신의 구원의 계획을 더욱 분명히 드러내십니다. 그리고 그 계획은 결국, 하나님과 사람이 다시 하나 되는 자리, 그분의 생명이 사람 안에 거하는 자리로 나아갑니다.</p>
+    <p class="closing-mark">이렇게 사사기의 시작은, 단순한 혼란의 시대가 아니라, 하나님의 경륜이 더 깊어지는 시작점이 됩니다.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>사사기 시리즈 · 1장 (삿 1:1 – 2:23)</p>
+</footer>
+
+<script>
+  // scroll progress
+  const progress = document.getElementById('progress');
+  function updateProgress(){
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = (scrolled || 0) + '%';
+  }
+  window.addEventListener('scroll', updateProgress, {passive:true});
+  updateProgress();
+
+  // scroll reveal
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+
+  document.querySelectorAll('section.block').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>

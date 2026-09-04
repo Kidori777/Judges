@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>왕이 없던 시대 — 사사기 19장~21장</title>
+<meta name="description" content="사사기 19장부터 21장까지, 레위인과 첩의 비극에서 시작해 이스라엘 전체의 붕괴로 이어지는 이야기를 따라가는 묵상 페이지.">
+<meta property="og:title" content="왕이 없던 시대 — 사사기 19장~21장">
+<meta property="og:description" content="사사기 19장부터 21장까지, 레위인과 첩의 비극에서 시작해 이스라엘 전체의 붕괴로 이어지는 이야기를 따라가는 묵상 페이지.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#efe6d5;
+    --ink-dim:#b8a992;
+    --ink-faint:#8a7c6a;
+    --gold:#cf9f47;
+    --gold-soft:#e8c684;
+    --blood:#9a3b45;
+    --blood-deep:#5c1c22;
+    --thread:#4a4038;
+    --serif:'Noto Serif KR', serif;
+    --sans:'Noto Sans KR', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    color:var(--ink);
+    background:#160f0d;
+    overflow-x:hidden;
+    line-height:1.9;
+  }
+
+  /* ---------- backdrop wash layers ---------- */
+  #backdrop{position:fixed; inset:0; z-index:-2; overflow:hidden;}
+  #backdrop .layer{
+    position:absolute; inset:-10%;
+    opacity:0;
+    transition:opacity 1.6s ease;
+  }
+  #backdrop .layer.active{opacity:1;}
+  .layer.l-intro{background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, #2a1f18 0%, transparent 60%),
+    linear-gradient(180deg, #1c1512 0%, #17110e 100%);}
+  .layer.l-act1{background:
+    radial-gradient(ellipse 80% 60% at 50% 20%, #431a1e 0%, transparent 65%),
+    linear-gradient(180deg, #23100f 0%, #170a0a 100%);}
+  .layer.l-act2{background:
+    radial-gradient(ellipse 90% 50% at 50% 30%, #35281f 0%, transparent 60%),
+    linear-gradient(180deg, #211c17 0%, #16130f 100%);}
+  .layer.l-act3{background:
+    radial-gradient(ellipse 70% 50% at 50% 40%, #2a201c 0%, transparent 60%),
+    linear-gradient(180deg, #1a1613 0%, #110f0d 100%);}
+  .layer.l-climax{background:
+    radial-gradient(ellipse 60% 45% at 50% 45%, #4a1418 0%, transparent 55%),
+    linear-gradient(180deg, #100b0a 0%, #0c0908 100%);}
+  .layer.l-coda{background:
+    radial-gradient(ellipse 85% 65% at 50% 25%, #4c3416 0%, transparent 65%),
+    linear-gradient(180deg, #251a10 0%, #1c140d 100%);}
+
+  canvas#embers{position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.55;}
+
+  /* ---------- layout ---------- */
+  .story{max-width:1100px; margin:0 auto; padding:0 6vw;}
+  section{position:relative; padding:9rem 0; border-left:2px solid transparent; padding-left:2.6rem;}
+  @media (max-width:640px){
+    section{padding-left:1.4rem; padding-top:5.5rem; padding-bottom:5.5rem;}
+    .story{padding:0 5.5vw;}
+  }
+
+  .sc-intro{border-color:var(--thread);}
+  .sc-act1{border-color:var(--blood-deep);}
+  .sc-act2{border-color:#5b4a35;}
+  .sc-act3{border-color:#463a2c;}
+  .sc-climax{border-left:none;}
+  .sc-coda{border-color:var(--gold); box-shadow:-2px 0 24px -4px rgba(207,159,71,.25) inset;}
+
+  .kicker{
+    font-family:var(--serif); font-size:.95rem; font-weight:500;
+    color:var(--ink-faint); letter-spacing:.08em; margin-bottom:1.6rem;
+    display:flex; align-items:baseline; gap:.7rem;
+  }
+  .kicker .num{font-size:1.5rem; color:var(--gold); font-weight:700;}
+
+  h1,h2{font-family:var(--serif); font-weight:700; line-height:1.35; color:var(--ink);}
+  h2{font-size:clamp(1.6rem, 3.2vw, 2.5rem); margin-bottom:2.2rem; max-width:14ch;}
+
+  p.body-text{
+    font-family:var(--sans); font-weight:300; font-size:1.08rem;
+    color:var(--ink-dim); max-width:62ch; margin-bottom:1.7rem;
+    opacity:0; transform:translateY(18px); transition:opacity .9s ease, transform .9s ease;
+  }
+  p.body-text.in{opacity:1; transform:translateY(0);}
+  p.body-text strong{color:var(--ink); font-weight:600;}
+
+  .verse{
+    font-family:var(--serif); font-size:1.5rem; line-height:1.7; color:var(--gold-soft);
+    max-width:20ch; margin:2.2rem 0 2.4rem; font-weight:500;
+    opacity:0; transform:translateY(18px); transition:opacity .9s ease, transform .9s ease;
+  }
+  .verse.in{opacity:1; transform:translateY(0);}
+  .verse .cite{display:block; font-family:var(--sans); font-size:.85rem; color:var(--ink-faint); margin-top:.8rem; font-weight:400;}
+
+  /* hero */
+  .hero{
+    min-height:100svh; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    text-align:center; padding:6rem 0; border:none;
+  }
+  .hero .eyebrow{font-family:var(--serif); color:var(--ink-faint); font-size:1rem; letter-spacing:.05em; margin-bottom:1.4rem;}
+  .hero h1{font-size:clamp(2.6rem, 7vw, 5.2rem); max-width:12ch; letter-spacing:-.01em; margin:0 auto;}
+  .hero .sub{font-family:var(--serif); color:var(--gold-soft); font-size:clamp(1.05rem,2vw,1.3rem); margin:1.8rem auto 0; max-width:36ch; line-height:1.75; font-weight:400;}
+  .hero .range{margin-top:3.2rem; font-family:var(--sans); color:var(--ink-faint); font-size:.9rem; letter-spacing:.04em;}
+
+  /* climax section */
+  .sc-climax{min-height:100svh; display:flex; align-items:center; padding-left:0;}
+  .climax-wrap{max-width:900px;}
+  .climax-quote{
+    font-family:var(--serif); font-weight:900; color:var(--ink);
+    font-size:clamp(1.7rem, 4.6vw, 3.1rem); line-height:1.55; max-width:16ch;
+    opacity:0; transform:translateY(18px); transition:opacity 1.1s ease, transform 1.1s ease;
+  }
+  .climax-quote.in{opacity:1; transform:translateY(0);}
+  .climax-cite{font-family:var(--sans); color:var(--blood); font-size:1rem; margin-top:2rem; letter-spacing:.06em;}
+  .frayline{width:120px; height:14px; margin-bottom:2.5rem; opacity:.85;}
+
+  footer{padding:5rem 0 4rem; text-align:center;}
+  footer p{font-family:var(--serif); color:var(--ink-faint); font-size:.95rem;}
+</style>
+</head>
+<body>
+
+<div id="backdrop">
+  <div class="layer l-intro active" data-theme="intro"></div>
+  <div class="layer l-act1" data-theme="act1"></div>
+  <div class="layer l-act2" data-theme="act2"></div>
+  <div class="layer l-act3" data-theme="act3"></div>
+  <div class="layer l-climax" data-theme="climax"></div>
+  <div class="layer l-coda" data-theme="coda"></div>
+</div>
+<canvas id="embers"></canvas>
+
+<main class="story">
+
+  <section class="hero" data-theme="intro">
+    <div class="eyebrow">사사기 묵상 시리즈</div>
+    <h1>왕이 없던 시대</h1>
+    <p class="sub">사람마다 자기 눈에 옳은 대로 행하던 나날, 한 레위인과 그의 첩에게서 시작된 이야기가 어떻게 온 이스라엘을 무너뜨렸는가.</p>
+    <div class="range">사사기 19장 — 21장</div>
+  </section>
+
+  <section class="sc-intro" data-theme="intro">
+    <div class="kicker">서장</div>
+    <h2>무너진 질서</h2>
+    <p class="body-text">“<strong>이스라엘 가운데 왕이 없을 당시에…</strong>”(삿 19:1)라는 한 문장은, 단순한 시대적 배경을 넘어 이 이야기 전체를 꿰뚫는 영적 상태를 드러냅니다. 왕이 없다는 것은 단지 정치적 공백이 아니라, 하나님을 왕으로 인정하지 않는 상태, 곧 사람마다 자기 눈에 옳은 대로 행하는 혼돈의 시작을 의미합니다. 하나님께서 이스라엘을 택하신 목적은 그분의 통치 아래에서 거룩한 백성이 되는 것이었지만, 이 구절은 이미 그 질서가 무너졌음을 조용히 선언하고 있습니다.</p>
+  </section>
+
+  <section class="sc-act1" data-theme="act1">
+    <div class="kicker"><span class="num">1</span>제1막 · 사사기 19장 — 무너진 사람</div>
+    <h2>떠나간 첩</h2>
+    <p class="body-text">이 흐름 속에서 등장하는 한 레위인과 그의 첩의 이야기는 단순한 개인적 사건이 아니라, 이스라엘 전체의 내면을 비추는 거울입니다. “그의 첩이… 떠나… 베들레헴으로 돌아가” (삿 19:2)는 장면은 관계의 붕괴를 보여 주지만, 더 깊은 차원에서는 하나님과 이스라엘 사이의 언약 관계가 깨져 가고 있음을 상징합니다. 하나님께서 언약으로 묶으신 백성이 이제는 서로를 향한 신실함조차 잃어버린 것입니다.</p>
+
+    <p class="body-text">레위인이 첩을 다시 데려오려는 여정은 겉으로는 화해의 시도처럼 보입니다. 장인의 집에서 며칠 동안 머물며 “먹고 마시며” (삿 19:4-8) 시간을 보내는 장면은 평온해 보이지만, 이 평온은 결단을 미루는 지연된 순종의 모습이기도 합니다. 하나님께서 주신 길을 즉시 따르지 않고 인간적인 관계와 감정 속에 머무를 때, 결국 더 어두운 결과로 이어지는 것을 보여 줍니다.</p>
+
+    <p class="body-text">그들이 길을 떠나 “여부스(곧 예루살렘)”에 이르렀을 때, 레위인은 이방인의 성을 피하고 “기브아로 가자” (삿 19:12)고 말합니다. 겉으로 보면 이는 신앙적 선택처럼 보입니다. 그러나 아이러니하게도, 하나님을 알지 못하는 이방인의 성보다, 하나님을 아는 이스라엘의 성읍에서 더 큰 악이 드러납니다. 이것이 바로 이 장이 드러내는 충격적인 진실입니다. 하나님을 아는 지식이 있으나 그분의 생명이 없는 상태, 그것이 가장 깊은 타락으로 이어진다는 것입니다.</p>
+
+    <p class="body-text">기브아에서 “그들을 자기 집으로 맞아들여 묵게 하는 사람이 아무도 없었다” (삿 19:15)는 구절은 공동체의 붕괴를 보여 줍니다. 하나님께서 원하셨던 공동체는 서로를 돌보고 맞아들이는 사랑의 공동체였지만, 이제는 나그네조차 외면하는 냉혹한 사회가 되어 버렸습니다.</p>
+
+    <p class="body-text">이어지는 장면은 창세기의 소돔 사건을 떠올리게 합니다. “그 성의 무뢰한들이… ‘그 남자를 내보내시오’” (삿 19:22)라는 요구는 인간의 타락이 어디까지 내려갈 수 있는지를 적나라하게 드러냅니다. 하나님께서 소돔을 심판하셨던 이유가 이스라엘 안에서 그대로 반복되고 있는 것입니다. 선택받은 백성이 세상보다 더 깊은 어둠 속에 들어간 모습입니다.</p>
+
+    <div class="verse">노인이 자신의 딸과 첩을 대신 내어주려는 장면은 인간의 가치가 완전히 뒤집힌 상태를 보여 줍니다.<span class="cite">삿 19:24</span></div>
+
+    <p class="body-text">보호해야 할 것을 버리고, 지켜야 할 생명을 희생시키는 이 왜곡은 하나님을 떠난 인간이 얼마나 비틀어질 수 있는지를 보여 줍니다. 결국 “그들이 그 여자와 상관하여… 새벽까지 욕보였다” (삿 19:25)는 구절은, 단순한 범죄가 아니라 공동체 전체의 영적 죽음을 선언하는 사건입니다.</p>
+
+    <p class="body-text">그 여자가 “문지방에 쓰러져” (삿 19:26) 있는 장면은 매우 상징적입니다. 문지방은 안과 밖의 경계, 생명과 죽음의 경계입니다. 그녀는 그 경계에서 죽어 있습니다. 이는 이스라엘 전체가 생명과 죽음의 경계에 서 있다는 것을 보여 줍니다.</p>
+
+    <p class="body-text">레위인이 시신을 “열두 토막 내어… 보냈다” (삿 19:29)는 행위는 충격적이지만, 그것은 단순한 잔혹함이 아니라 이스라엘 전체를 깨우기 위한 외침입니다. 그리고 백성들은 “이러한 일은 일어난 적도 없고… 본 적도 없습니다” (삿 19:30)라고 말합니다. 그러나 그들의 놀람은 회개로 이어지지 않고, 또 다른 비극으로 이어집니다.</p>
+  </section>
+
+  <section class="sc-act2" data-theme="act2">
+    <div class="kicker"><span class="num">2</span>제2막 · 사사기 20장 — 무너진 공동체</div>
+    <h2>분노로 모인 백성</h2>
+    <p class="body-text">20장으로 넘어가면, 온 이스라엘이 “한 사람처럼… 여호와 앞에 모여들었다” (삿 20:1)고 기록됩니다. 겉으로는 하나됨처럼 보이지만, 그 중심에는 하나님의 뜻을 구하는 마음보다 분노와 복수의 감정이 자리하고 있습니다. 그들은 악을 제거하려 하지만, 그 과정에서 또 다른 악을 만들어 냅니다.</p>
+
+    <p class="body-text">전쟁의 과정에서 하나님께 묻고 제사를 드리지만(삿 20:23, 26), 처음 두 번의 전투에서 패배합니다. 이는 하나님께 묻는 행위 자체가 목적이 아니라, 그분의 마음과 일치되는 것이 중요함을 보여 줍니다. 형식적인 신앙은 승리를 보장하지 않습니다. 하나님께서 원하시는 것은 외적인 종교 행위가 아니라, 그분의 뜻에 대한 깊은 순종입니다.</p>
+
+    <div class="verse">여호와께서… 베냐민을 치셨다.<span class="cite">삿 20:35</span></div>
+
+    <p class="body-text">이 승리는 하나님께서 결국 악을 심판하신다는 것을 보여 줍니다. 그러나 그 결과는 참혹합니다. 한 지파가 거의 사라지는 지경에 이릅니다. 죄는 항상 과도한 파괴를 남깁니다. 인간이 시작한 불의는 결국 공동체 전체를 무너뜨립니다.</p>
+  </section>
+
+  <section class="sc-act3" data-theme="act3">
+    <div class="kicker"><span class="num">3</span>제3막 · 사사기 21장 — 반복되는 죄</div>
+    <h2>또 다른 왜곡</h2>
+    <p class="body-text">21장에 이르면, 이스라엘은 뒤늦게 “한 지파가 없어지게 되었다” (삿 21:3)며 슬퍼합니다. 그러나 그들이 선택한 해결 방식은 또 다른 왜곡입니다. 맹세 때문에 딸들을 줄 수 없자, 야베스길르앗을 공격하고(삿 21:10), 또 실로의 딸들을 납치하게 합니다(삿 21:20-21). 문제를 해결하려는 인간의 방법이 또 다른 죄를 낳는 악순환이 계속됩니다.</p>
+  </section>
+
+  <section class="sc-climax" data-theme="climax">
+    <div class="climax-wrap">
+      <svg class="frayline" viewBox="0 0 120 14" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 7 L18 7 L22 2 L28 12 L34 4 L40 7 L58 7" stroke="#9a3b45" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M66 7 L80 7 L84 3 L90 11 L96 5 L102 7 L120 7" stroke="#9a3b45" stroke-width="2" fill="none" stroke-linecap="round"/>
+      </svg>
+      <p class="climax-quote">그 당시 이스라엘 가운데에는 왕이 없었다.<br>사람들은 저마다 자기가 보기에 옳은 대로 하였다.</p>
+      <div class="climax-cite">사사기 21:25</div>
+    </div>
+  </section>
+
+  <section class="sc-coda" data-theme="coda">
+    <div class="kicker">종장</div>
+    <h2>참된 왕을 향하여</h2>
+    <p class="body-text">이 구절은 단순한 결론이 아니라, 사사기 전체의 영적 진단입니다. 하나님께서 왕으로 다스리지 않으실 때, 인간은 반드시 자기 중심으로 흐르게 되고, 그 끝은 혼돈과 파괴입니다.</p>
+
+    <p class="body-text">그러나 이 어둠 속에서도 하나님의 경륜은 멈추지 않습니다. 이 비극적인 역사 전체는 하나의 질문을 향해 나아갑니다.</p>
+
+    <div class="verse">누가 참된 왕이 될 것인가?</div>
+
+    <p class="body-text">사사기의 혼돈은 결국 왕정의 필요성을 드러내고, 더 나아가 인간 왕이 아닌 하나님 자신의 통치를 갈망하게 만듭니다. 그리고 그 흐름은 궁극적으로 한 분을 향해 나아갑니다. 사람의 눈에 옳은 것이 아니라, 하나님의 뜻을 온전히 이루시는 참된 왕, 곧 하나님께서 보내실 왕을 향한 갈망입니다.</p>
+
+    <p class="body-text">이처럼 사사기 19장부터 21장까지의 이야기는 단순한 타락의 기록이 아니라, 인간의 한계를 철저히 드러내어 하나님께로 돌아가게 하는 거대한 서사입니다. 인간이 자기 길을 걸을 때 얼마나 깊이 무너지는지를 보여 주고, 오직 하나님만이 참된 질서와 생명의 근원이심을 드러냅니다.</p>
+
+    <p class="body-text">결국 이 이야기는 독자로 하여금 조용히 깨닫게 합니다. 왕이 없는 삶은 곧 하나님 없는 삶이며, 하나님 없는 삶의 끝은 반드시 무너짐이라는 것을.</p>
+
+    <p class="body-text">그리고 동시에, 하나님께서 이루고자 하시는 궁극적인 목적은 분명해집니다. 사람이 자기 뜻이 아니라 하나님의 통치 아래로 돌아와, 그분의 생명과 질서 안에서 다시 세워지는 것, 그것이 하나님께서 이 모든 역사를 통해 이루고자 하시는 경륜입니다.</p>
+  </section>
+
+  <footer data-theme="coda">
+    <p>사사기 19장 — 21장</p>
+  </footer>
+
+</main>
+
+<script>
+(function(){
+  // ---- backdrop theme crossfade ----
+  var layers = document.querySelectorAll('#backdrop .layer');
+  var themedSections = document.querySelectorAll('[data-theme]');
+  function setTheme(name){
+    layers.forEach(function(l){
+      l.classList.toggle('active', l.dataset.theme === name);
+    });
+  }
+  var themeObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        setTheme(entry.target.dataset.theme);
+      }
+    });
+  }, {threshold:0, rootMargin:'-45% 0px -45% 0px'});
+  themedSections.forEach(function(s){ themeObserver.observe(s); });
+
+  // ---- reveal on scroll ----
+  var reveals = document.querySelectorAll('.body-text, .verse, .climax-quote');
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.2});
+  reveals.forEach(function(el){ revealObserver.observe(el); });
+
+  // ---- ember particles, confined to page margins ----
+  var canvas = document.getElementById('embers');
+  var ctx = canvas.getContext('2d');
+  var w, h, particles = [];
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = document.documentElement.scrollHeight;
+  }
+  function marginX(){
+    // keep particles near the left/right edges, away from the reading column
+    var side = Math.random() < 0.5 ? 0 : 1;
+    var band = w * 0.10;
+    return side === 0 ? Math.random() * band : w - Math.random() * band;
+  }
+  function makeParticle(){
+    return {
+      x: marginX(),
+      y: Math.random() * h,
+      r: 0.6 + Math.random() * 1.6,
+      speed: 0.15 + Math.random() * 0.35,
+      drift: (Math.random() - 0.5) * 0.2,
+      alpha: 0.15 + Math.random() * 0.35
+    };
+  }
+  function init(){
+    resize();
+    var count = reduceMotion ? 0 : Math.min(70, Math.floor(h / 30));
+    particles = [];
+    for(var i=0;i<count;i++) particles.push(makeParticle());
+  }
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    ctx.fillStyle = 'rgba(207,159,71,0.9)';
+    particles.forEach(function(p){
+      ctx.globalAlpha = p.alpha;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+      p.y -= p.speed;
+      p.x += p.drift;
+      if(p.y < -10){ p.y = h + 10; p.x = marginX(); }
+    });
+    ctx.globalAlpha = 1;
+    if(!reduceMotion) requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', function(){
+    resize();
+  });
+  init();
+  if(!reduceMotion) requestAnimationFrame(draw); else draw();
+})();
+</script>
+
+</body>
+</html>

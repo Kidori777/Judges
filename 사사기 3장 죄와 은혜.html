@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>사사기 3장 | 죄와 은혜 사이</title>
+<meta name="description" content="사사기 3장 묵상 — 옷니엘과 에훗, 삼갈의 이야기를 통해 반복되는 죄와 압제, 부르짖음과 구원의 흐름을 따라간다.">
+<meta property="og:title" content="사사기 3장 | 죄와 은혜 사이">
+<meta property="og:description" content="옷니엘과 에훗, 삼갈 — 반복되는 죄와 구원 속에서 하나님의 경륜을 묵상하다.">
+<meta property="og:type" content="article">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1e170f;
+    --bg-soft: #271d13;
+    --bg-panel: #2c2116;
+    --text: #ece1cc;
+    --text-dim: #b9a98c;
+    --text-faint: #8a7c65;
+    --blood: #9a4634;
+    --blood-soft: #7a3a2b;
+    --bronze: #c69646;
+    --bronze-soft: #a67c39;
+    --olive: #6b6e46;
+    --line: rgba(236, 225, 204, 0.14);
+    --line-soft: rgba(236, 225, 204, 0.07);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Serif KR', serif;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a { color: var(--bronze); }
+
+  ::selection { background: var(--blood-soft); color: var(--text); }
+
+  :focus-visible {
+    outline: 2px solid var(--bronze);
+    outline-offset: 3px;
+  }
+
+  #ember-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.55;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 120px 0 80px;
+  }
+
+  .hero-series {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    font-size: 0.95rem;
+    color: var(--text-faint);
+    letter-spacing: 0.02em;
+    margin: 0 0 22px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 8vw, 4.6rem);
+    font-weight: 700;
+    margin: 0 0 10px;
+    line-height: 1.15;
+    color: var(--text);
+  }
+
+  .hero-theme {
+    font-size: clamp(1.3rem, 4vw, 1.9rem);
+    font-weight: 500;
+    color: var(--bronze);
+    margin: 0 0 28px;
+  }
+
+  .hero-range {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.92rem;
+    color: var(--text-dim);
+    margin: 0 0 40px;
+  }
+
+  .hero-lede {
+    font-size: 1.08rem;
+    color: var(--text-dim);
+    max-width: 46ch;
+    margin: 0;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 28px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 34px;
+    background: linear-gradient(var(--bronze), transparent);
+    display: block;
+  }
+
+  /* SECTIONS */
+  main { position: relative; z-index: 1; padding-bottom: 60px; }
+
+  .movement {
+    padding: 70px 0;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .movement.in-view { opacity: 1; transform: translateY(0); }
+
+  .movement-label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    margin: 0 0 10px;
+  }
+
+  .movement-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 34px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  blockquote {
+    margin: 0 0 28px;
+    padding: 4px 0 4px 22px;
+    border-left: 2px solid var(--bronze-soft);
+    font-size: 1.12rem;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  blockquote cite {
+    display: block;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-style: normal;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    margin-top: 8px;
+    font-weight: 300;
+  }
+
+  .movement p {
+    font-size: 1.03rem;
+    color: var(--text-dim);
+    margin: 0 0 26px;
+    max-width: 62ch;
+  }
+
+  .movement p:last-child { margin-bottom: 0; }
+
+  /* CYCLE DIAGRAM */
+  .cycle-block {
+    margin: 44px 0 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .cycle-caption {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-faint);
+    text-align: center;
+    max-width: 40ch;
+  }
+
+  .cycle-svg { width: 100%; max-width: 380px; height: auto; }
+
+  .cycle-node-label {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+    fill: var(--text);
+    font-weight: 500;
+  }
+
+  .cycle-arrow { stroke: var(--text-faint); stroke-width: 1.4; fill: none; marker-end: url(#arrowhead); }
+
+  /* TIMELINE */
+  .timeline {
+    margin: 40px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .timeline-item {
+    flex: 1 1 0;
+    min-width: 140px;
+    padding: 22px 20px;
+    border-right: 1px solid var(--line-soft);
+  }
+
+  .timeline-item:last-child { border-right: none; }
+
+  .timeline-years {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--bronze);
+    margin: 0 0 6px;
+  }
+
+  .timeline-desc {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.86rem;
+    color: var(--text-dim);
+    margin: 0;
+  }
+
+  /* FIGURE CARD (Ehud dagger motif) */
+  .glyph-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 36px 0;
+    padding: 22px 24px;
+    background: var(--bg-panel);
+    border-left: 3px solid var(--blood);
+  }
+
+  .glyph-row svg { flex-shrink: 0; width: 46px; height: 46px; }
+
+  .glyph-row p { margin: 0; font-size: 0.98rem; color: var(--text-dim); }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    margin: 0 auto;
+    background: linear-gradient(90deg, transparent, var(--blood-soft), var(--bronze-soft), transparent);
+    opacity: 0.6;
+  }
+
+  /* CONCLUSION */
+  .finale {
+    padding: 90px 0 120px;
+  }
+
+  .finale-title {
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+    font-weight: 700;
+    margin: 0 0 30px;
+    color: var(--text);
+  }
+
+  .finale p {
+    font-size: 1.08rem;
+    color: var(--text-dim);
+    margin: 0 0 26px;
+    max-width: 62ch;
+  }
+
+  .finale-mark {
+    color: var(--bronze);
+    font-weight: 600;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 40px 0 60px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 560px) {
+    .hero { min-height: 88vh; padding: 100px 0 60px; }
+    .timeline { flex-direction: column; }
+    .timeline-item { border-right: none; border-bottom: 1px solid var(--line-soft); }
+    .timeline-item:last-child { border-bottom: none; }
+    .glyph-row { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="ember-canvas"></canvas>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="hero-series">사사기 성경 시리즈</p>
+    <h1 class="hero-title">사사기 3장</h1>
+    <p class="hero-theme">죄와 은혜 사이</p>
+    <p class="hero-range">삿 3:1–31</p>
+    <p class="hero-lede">순종은 말로 증명되지 않고, 환경 속에서 드러난다. 옷니엘과 에훗, 그리고 이름만 남은 삼갈까지 — 반복되는 죄와 압제, 부르짖음과 구원의 흐름을 따라간다.</p>
+  </div>
+  <div class="hero-scroll">아래로</div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="movement" id="m1">
+      <p class="movement-label">삿 3:1–4</p>
+      <h2 class="movement-title">남겨진 민족, 감추어진 시험</h2>
+
+      <blockquote>
+        “여호와는 이스라엘(곧 가나안에서 일어난 그 모든 전쟁을 알지 못하는 이들 모두)을 시험하시기 위하여 몇몇 민족을 남겨 두셨는데”
+        <cite>삿 3:1</cite>
+      </blockquote>
+
+      <p>이 구절은 단순한 역사적 설명이 아니라, 하나님의 깊은 의도를 드러내는 문장입니다. 하나님께서 가나안 족속을 완전히 제거하지 않으시고 일부를 남겨 두신 것은 실패가 아니라, 오히려 계획된 섭리였습니다. 왜냐하면 하나님은 단순히 땅을 주시는 분이 아니라, 그 땅에서 하나님과 함께 살아갈 백성을 빚어 가시는 분이기 때문입니다.</p>
+
+      <blockquote>
+        “이것은 다만 아직 전쟁을 알지 못하는 이스라엘 자손의 세대가 전쟁을 알도록 가르치시기 위한 것이었다”
+        <cite>삿 3:2</cite>
+      </blockquote>
+
+      <p>여기서 ‘전쟁’은 단순한 무력 충돌을 넘어, 하나님과 함께 살아가는 삶의 실제를 의미합니다. 이전 세대는 여호수아와 함께 하나님의 능력을 경험했지만, 새로운 세대는 그 체험이 없었습니다. 그래서 하나님은 그들에게 ‘환경’을 통해 배우게 하십니다. 믿음은 단순히 전해지는 것이 아니라, 실제 상황 속에서 하나님을 의지하며 형성되는 것이기 때문입니다.</p>
+
+      <blockquote>
+        “이들이 여호와께서 이스라엘을 시험하시기 위하여… 그 계명들을 청종하는지 그러지 않는지를 알아보시려고 남겨 두신 이들이다”
+        <cite>삿 3:4</cite>
+      </blockquote>
+
+      <p>하나님의 시험은 파괴가 아니라 드러냄입니다. 이미 알고 계시는 것을 확인하려는 것이 아니라, 사람 스스로 자신의 상태를 깨닫게 하시는 것입니다. 순종은 말로 증명되지 않고, 환경 속에서 드러납니다. 그리고 바로 그 지점에서 이스라엘의 내면이 드러나기 시작합니다.</p>
+    </section>
+
+    <div class="wrap"><div class="divider"></div></div>
+
+    <section class="movement" id="m2">
+      <p class="movement-label">삿 3:5–8</p>
+      <h2 class="movement-title">타협에서 배신으로</h2>
+
+      <blockquote>
+        “이스라엘 자손은… 그들의 딸을 자기들의 아내로 삼고… 그들의 신들을 섬겼다”
+        <cite>삿 3:5–6</cite>
+      </blockquote>
+
+      <p>결국 이스라엘은 환경을 통해 하나님을 배우기보다, 환경에 동화되어 버립니다. 이것이 사사기의 비극적인 출발점입니다. 하나님께서 남겨 두신 ‘시험의 도구’는 그들을 성숙하게 하기 위한 것이었지만, 그들은 그것에 굴복하여 하나님을 잊어버립니다. 외적인 타협은 결국 내적인 배신으로 이어집니다.</p>
+
+      <blockquote>
+        “이스라엘 자손이 여호와께서 보시기에 악한 짓을 하며… 바알들과 아세라상들을 섬겼다”
+        <cite>삿 3:7</cite>
+      </blockquote>
+
+      <p>여기서부터 하나의 반복되는 흐름이 시작됩니다. 죄 → 압제 → 부르짖음 → 구원. 이것은 단순한 사건의 반복이 아니라, 인간의 상태와 하나님의 반응을 드러내는 구조입니다. 하나님을 떠난 인간은 필연적으로 다른 것을 섬기게 되고, 그 결과는 반드시 속박입니다.</p>
+
+      <div class="cycle-block">
+        <svg class="cycle-svg" viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8 Z" fill="#8a7c65"></path>
+            </marker>
+          </defs>
+          <circle cx="190" cy="190" r="150" fill="none" stroke="#3a2c1c" stroke-width="1"></circle>
+
+          <path class="cycle-arrow" d="M 250 90 A 150 150 0 0 1 310 190"></path>
+          <path class="cycle-arrow" d="M 310 250 A 150 150 0 0 1 250 320"></path>
+          <path class="cycle-arrow" d="M 130 320 A 150 150 0 0 1 70 250"></path>
+          <path class="cycle-arrow" d="M 70 130 A 150 150 0 0 1 130 90"></path>
+
+          <circle cx="190" cy="40" r="34" fill="#3f3f28" stroke="#6b6e46" stroke-width="1.5"></circle>
+          <text x="190" y="45" text-anchor="middle" class="cycle-node-label">죄</text>
+
+          <circle cx="340" cy="190" r="34" fill="#3a2118" stroke="#9a4634" stroke-width="1.5"></circle>
+          <text x="340" y="195" text-anchor="middle" class="cycle-node-label">압제</text>
+
+          <circle cx="190" cy="340" r="34" fill="#332815" stroke="#c69646" stroke-width="1.5"></circle>
+          <text x="190" y="345" text-anchor="middle" class="cycle-node-label">부르짖음</text>
+
+          <circle cx="40" cy="190" r="34" fill="#332815" stroke="#c69646" stroke-width="1.5"></circle>
+          <text x="40" y="195" text-anchor="middle" class="cycle-node-label">구원</text>
+        </svg>
+        <p class="cycle-caption">사사기 전체를 관통하는 하나의 구조 — 이스라엘은 이 원 위를 몇 번이고 다시 돌게 됩니다.</p>
+      </div>
+
+      <blockquote>
+        “여호와의 진노가 이스라엘을 향하여 타올라… 그들을… 구산리사다임의 손에 파시니”
+        <cite>삿 3:8</cite>
+      </blockquote>
+
+      <p>하나님의 진노는 감정적 폭발이 아니라, 거룩함의 반응입니다. 하나님은 자신의 백성이 우상을 섬기는 것을 그대로 두지 않으십니다. 그래서 그들을 ‘넘기십니다’. 이것은 버림이 아니라, 돌이킴을 위한 길입니다. 인간은 종종 고통 속에서만 하나님을 찾기 때문입니다.</p>
+    </section>
+
+    <div class="wrap"><div class="divider"></div></div>
+
+    <section class="movement" id="m3">
+      <p class="movement-label">삿 3:9–11</p>
+      <h2 class="movement-title">옷니엘 — 첫 번째 구원자</h2>
+
+      <blockquote>
+        “이스라엘 자손이 여호와께 부르짖자… 구원자를 일으키셨으니… 옷니엘이었다”
+        <cite>삿 3:9</cite>
+      </blockquote>
+
+      <p>여기서 놀라운 것은, 이스라엘의 회개가 완전하지 않음에도 불구하고 하나님이 응답하신다는 점입니다. 하나님은 그들의 자격이 아니라, 자신의 긍휼에 따라 움직이십니다. 그리고 “여호와의 영께서 옷니엘 위에 내려오시니”(삿 3:10)라는 말씀처럼, 구원은 사람의 능력이 아니라 하나님의 영에 의해 이루어집니다.</p>
+
+      <blockquote>
+        “그 땅이 사십 년 동안 평온하였다”
+        <cite>삿 3:11</cite>
+      </blockquote>
+
+      <p>하나님이 주시는 평안은 단순한 전쟁의 부재가 아니라, 하나님과의 관계가 회복된 상태입니다. 그러나 이 평안은 영원히 지속되지 않습니다. 왜냐하면 사람의 마음이 다시 하나님을 떠나기 때문입니다.</p>
+    </section>
+
+    <div class="wrap"><div class="divider"></div></div>
+
+    <section class="movement" id="m4">
+      <p class="movement-label">삿 3:12–30</p>
+      <h2 class="movement-title">다시, 에훗 — 뜻밖의 손</h2>
+
+      <blockquote>
+        “이스라엘 자손이 다시 여호와께서 보시기에 악한 짓을 하였다”
+        <cite>삿 3:12</cite>
+      </blockquote>
+
+      <p>‘다시’라는 단어는 사사기의 핵심입니다. 인간은 은혜를 경험하고도 다시 돌아섭니다. 그래서 하나님은 이번에는 모압 왕 에글론을 사용하십니다. “여호와께서… 에글론을 강성하게 하시어”(삿 3:12)라는 말씀은, 하나님이 심지어 이방 왕까지도 자신의 도구로 사용하신다는 사실을 보여줍니다.</p>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <p class="timeline-years">40년</p>
+          <p class="timeline-desc">옷니엘 이후의 평온 — 삿 3:11</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-years">18년</p>
+          <p class="timeline-desc">에글론 아래의 압제 — 삿 3:14</p>
+        </div>
+        <div class="timeline-item">
+          <p class="timeline-years">80년</p>
+          <p class="timeline-desc">에훗 이후의 평온 — 삿 3:30</p>
+        </div>
+      </div>
+
+      <p style="margin-top:34px;">이스라엘은 십팔 년 동안 압제를 받습니다(삿 3:14). 그 시간은 단순한 형벌이 아니라, 하나님 없이 살아가는 삶의 결과를 깊이 체험하는 기간입니다.</p>
+
+      <blockquote>
+        “이스라엘 자손이 여호와께 부르짖자… 구원자를 일으키셨는데… 에훗이었다”
+        <cite>삿 3:15</cite>
+      </blockquote>
+
+      <div class="glyph-row">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="10" y1="38" x2="34" y2="10" stroke="#c69646" stroke-width="2.4" stroke-linecap="round"></line>
+          <path d="M32 8 L38 6 L40 12 L34 14 Z" fill="#c69646"></path>
+        </svg>
+        <p>에훗의 이야기는 매우 독특합니다. 그는 왼손잡이였고, 은밀한 방식으로 에글론을 죽입니다. 인간적으로 보면 기이하고 예상 밖의 방법입니다. 그러나 바로 그 방식 속에서 하나님의 원리가 드러납니다. 하나님은 인간의 기준과 다른 방식으로 역사하십니다.</p>
+      </div>
+
+      <blockquote>
+        “저에게 하나님께서 왕께 전해 드리라고 하신 말씀이 있습니다”
+        <cite>삿 3:20</cite>
+      </blockquote>
+
+      <p>이 말은 아이러니하게도 심판의 선언이 됩니다. 하나님의 말씀은 어떤 이에게는 생명이지만, 하나님을 대적하는 자에게는 심판이 됩니다. 에글론의 죽음은 단순한 정치적 사건이 아니라, 하나님께서 자기 백성을 위해 행하신 구원의 행위입니다.</p>
+
+      <blockquote>
+        “여호와께서 여러분의 원수 모압 족속을 여러분의 손에 넘겨주셨습니다”
+        <cite>삿 3:28</cite>
+      </blockquote>
+
+      <p>결국 승리는 인간의 전략이 아니라 하나님께 속합니다. 이스라엘은 요단강 나루를 지키며 완전한 승리를 거두고, “그 땅이 팔십 년 동안 평온하였다”(삿 3:30)고 기록됩니다. 이전보다 더 긴 평안입니다. 그러나 이 역시 영원하지 않습니다.</p>
+    </section>
+
+    <div class="wrap"><div class="divider"></div></div>
+
+    <section class="movement" id="m5">
+      <p class="movement-label">삿 3:31</p>
+      <h2 class="movement-title">삼갈, 평범함 속의 구원</h2>
+
+      <p>그리고 마지막에 짧게 등장하는 삼갈의 이야기는 또 다른 메시지를 줍니다.</p>
+
+      <blockquote>
+        “그는 소를 모는 막대기로 블레셋 사람 육백 명을 쳐 죽였다. 이처럼 그도 이스라엘을 구원하였다”
+        <cite>삿 3:31</cite>
+      </blockquote>
+
+      <div class="glyph-row">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="8" y1="40" x2="40" y2="8" stroke="#c69646" stroke-width="2.4" stroke-linecap="round"></line>
+          <circle cx="40" cy="8" r="3" fill="#c69646"></circle>
+        </svg>
+        <p>여기에는 화려한 무기도, 긴 설명도 없습니다. 그러나 하나님은 평범한 도구를 통해서도 구원을 이루십니다. 중요한 것은 도구가 아니라, 하나님께 쓰임 받는 것입니다.</p>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="wrap">
+    <section class="finale">
+      <h2 class="finale-title">반복이 가리키는 곳</h2>
+
+      <p>이 모든 이야기를 따라가다 보면 한 가지 흐름이 점점 분명해집니다. 하나님은 끊임없이 자기 백성을 시험하시고, 드러내시고, 다시 회복시키십니다. 그러나 동시에 인간은 끊임없이 잊고, 타협하고, 넘어집니다.</p>
+
+      <p>그렇다면 이 반복은 무엇을 말해 주는 것입니까?</p>
+
+      <p>이것은 단순히 이스라엘의 실패 기록이 아니라, 인간 전체의 상태를 보여주는 거울입니다. 그리고 동시에 하나님께서 왜 더 깊은 구원을 준비하시는지를 설명해 줍니다. 사사들을 통한 구원은 일시적이며 반복됩니다. 완전한 해결이 되지 못합니다.</p>
+
+      <p>결국 이 모든 흐름은 하나의 방향을 가리킵니다. 하나님은 단순히 외적인 압제에서 건져내는 것이 아니라, 사람의 마음 자체를 새롭게 하시는 궁극적인 구원을 이루시려는 것입니다. 반복되는 실패를 끝내기 위해, 더 이상 무너지지 않는 생명을 주시려는 것입니다.</p>
+
+      <p>그래서 사사기의 이 반복되는 이야기 속에서, 독자는 점점 깨닫게 됩니다. 인간에게는 스스로를 구원할 능력이 없으며, 하나님은 더 완전한 구원을 준비하고 계신다는 사실을 말입니다.</p>
+
+      <p><span class="finale-mark">이것이 바로 하나님의 경륜입니다.</span> 외적인 전쟁을 통해 내적인 상태를 드러내시고, 반복되는 구원을 통해 더 깊은 구원의 필요를 알게 하시며, 결국 하나님 자신이 그 해답이 되도록 이끌어 가시는 것입니다.</p>
+    </section>
+  </div>
+</main>
+
+<footer>사사기 성경 시리즈 · 3장</footer>
+
+<script>
+(function () {
+  // Scroll reveal
+  var items = document.querySelectorAll('.movement');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  // Ember canvas
+  var canvas = document.getElementById('ember-canvas');
+  var ctx = canvas.getContext('2d');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var w, h, embers = [];
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function makeEmber() {
+    return {
+      x: Math.random() * w,
+      y: h + Math.random() * 100,
+      r: 0.6 + Math.random() * 1.8,
+      speed: 0.15 + Math.random() * 0.35,
+      drift: (Math.random() - 0.5) * 0.3,
+      alpha: 0.1 + Math.random() * 0.35,
+      hue: Math.random() > 0.5 ? '198,150,70' : '154,70,52'
+    };
+  }
+
+  var count = window.innerWidth < 560 ? 22 : 40;
+  for (var i = 0; i < count; i++) {
+    var e = makeEmber();
+    e.y = Math.random() * h;
+    embers.push(e);
+  }
+
+  function tick() {
+    ctx.clearRect(0, 0, w, h);
+    embers.forEach(function (e) {
+      e.y -= e.speed;
+      e.x += e.drift;
+      if (e.y < -10) {
+        Object.assign(e, makeEmber());
+        e.y = h + 10;
+      }
+      ctx.beginPath();
+      ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + e.hue + ',' + e.alpha + ')';
+      ctx.fill();
+    });
+    if (!reduced) requestAnimationFrame(tick);
+  }
+
+  if (!reduced) {
+    requestAnimationFrame(tick);
+  } else {
+    // draw a single static frame
+    tick.call(null);
+    ctx.clearRect(0, 0, w, h);
+    embers.forEach(function (e) {
+      ctx.beginPath();
+      ctx.arc(e.x, e.y, e.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + e.hue + ',' + e.alpha + ')';
+      ctx.fill();
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
